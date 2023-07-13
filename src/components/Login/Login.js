@@ -20,34 +20,37 @@ const Login = (props) => {
   },[enteredPassword])
   
 
-  useEffect(()=>{
-    // Debouncing
-    const identified = setTimeout(() => {
-      console.log('checking form validity!');
-      setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
-      );
-    }, 500);
-    // cleanup function lets call it
-    return () => {
-      console.log("CleanUp!")
-      clearTimeout(identified);
-    }
+  // useEffect(()=>{
+  //   // Debouncing
+  //   const identified = setTimeout(() => {
+  //     console.log('checking form validity!');
+  //     setFormIsValid(
+  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
+  //     );
+  //   }, 500);
+  //   // cleanup function lets call it
+  //   return () => {
+  //     console.log("CleanUp!")
+  //     clearTimeout(identified);
+  //   }
 
-  },[enteredEmail, enteredPassword])
+  // },[enteredEmail, enteredPassword])
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
 
+    setFormIsValid(
+      event.target.value.includes('@') && enteredPassword.trim().length > 6
+    );
     
   };
 
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
 
-    // setFormIsValid(
-    //   event.target.value.trim().length > 6 && enteredEmail.includes('@')
-    // );
+    setFormIsValid(
+      event.target.value.trim().length > 6 && enteredEmail.includes('@')
+    );
   };
 
   const validateEmailHandler = () => {
