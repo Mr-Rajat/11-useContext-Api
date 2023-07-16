@@ -5,10 +5,6 @@ import Authcontext from '../../store/auth-context';
 
 const Navigation = (props) => {
   return (
-    // consumer Added
-    <Authcontext.Consumer>
-      {(ctx) => {
-        return (
       <nav className={classes.nav}>
         <ul>
           {ctx.isLoggedIn && (
@@ -28,10 +24,6 @@ const Navigation = (props) => {
           )}
         </ul>
       </nav>
-      )
-      }}
-
-    </Authcontext.Consumer>
   );
 };
 
