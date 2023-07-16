@@ -39,8 +39,9 @@ function App() {
     // <React.Fragment>
       <Authcontext.Provider value={{
         isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler
       }}>
-        <MainHeader onLogout={logoutHandler} />
+        <MainHeader />
         <main>
           {!isLoggedIn && <Login onLogin={loginHandler} />}
           {isLoggedIn && <Home onLogout={logoutHandler} />}
