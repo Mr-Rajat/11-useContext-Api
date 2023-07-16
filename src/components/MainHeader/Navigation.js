@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import classes from './Navigation.module.css';
 import Authcontext from '../../store/auth-context';
 
 const Navigation = (props) => {
+  const ctx = useContext(Authcontext);
   return (
       <nav className={classes.nav}>
         <ul>
